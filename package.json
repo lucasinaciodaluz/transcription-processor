@@ -1,0 +1,25 @@
+{
+  "name": "transcription-processor",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "proxy": "http://localhost:3001",
+  "scripts": {
+      "start": "node server/index.ts",
+      "build": "cd client && npm install && npm run build",
+      "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "node": "v16.17.0"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^18.7.23",
+    "typescript": "^4.8.4"
+  },
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}
