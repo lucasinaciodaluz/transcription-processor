@@ -2,8 +2,7 @@
   "name": "transcription-processor",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
-  "proxy": "http://localhost:3001",
+  "main": "index.tsx",
   "scripts": {
       "start": "node server/index.ts",
       "build": "cd client && npm install && npm run build",
