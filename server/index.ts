@@ -30,14 +30,11 @@ app.post('/api/upload-audio/', (req, res) => {
         const form = new formidable.IncomingForm();
         form.parse(req, async function (error, fields, file) {
             const filePath = file.filepath.filepath;
-            console.log("Starting upload file");
             const fileData = uploadFile(filePath);
-            console.log("Sending file");
             const uploadAudioResponse = await sendAudio(fileData);
-            console.log("Processing transcription");
             const processing = await processTranscription(uploadAudioResponse.data["upload_url"], languageCode);
-            console.log("Getting processing status");
-            res.json({ id: processing["id"] });
+            const { id } = processing;
+            res.json({ id: id });
         });
     } catch (error) {
         res.json({ 

@@ -35,7 +35,6 @@ class UploadFilesService {
                 await this.wait(delay);
                 const processingStatus = await this.getProcessingStatus(id);
                 processingPercentage = this.getPercentProcessingStatus(processingStatus);
-                console.log(processingPercentage);
                 status = processingStatus.data.status;
                 if (status === PROCESS_STATUS.ERROR) {
                     throw Error(processingStatus.data.error);
