@@ -5,7 +5,7 @@
   "main": "index.tsx",
   "scripts": {
     "start": "node server/index.ts",
-    "build": "cd serve npm install && cd ../client && npm install && npm run build",
+    "build": "cd serve && npm install && cd ../client && npm install && npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "engines": {
