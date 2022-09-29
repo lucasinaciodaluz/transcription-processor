@@ -13,13 +13,6 @@ app.use(cors())
 const authorization = "a3b415058c084c64acc825e5c6da4c02";
 const url = "https://api.assemblyai.com/v2";
 
-enum PROCESS_STATUS {
-    COMPLETED = "completed",
-    PROCESSING = "processing",
-    QUEUED = "queued",
-    ERROR = "error"
-}
-
 app.use(express.static(path.resolve(__dirname, '../client/build')));
 
 app.get("/api", (req, res) => {
