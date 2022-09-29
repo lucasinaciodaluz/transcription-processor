@@ -6,37 +6,21 @@ function HeaderPage() {
             fluid={true}
             rounded={true}
         >
-            <Navbar.Brand href="https://flowbite.com/">
+            <Navbar.Brand>
                 <img
-                    src="https://flowbite.com/docs/images/logo.svg"
-                    className="mr-3 h-6 sm:h-9"
-                    alt="Flowbite Logo"
+                    src="https://avatars.githubusercontent.com/u/24515738?s=200&v=4"
+                    className="h-12"
+                    alt="AssemblyAI"
                 />
-                <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
-                    Flowbite
-                </span>
+                <div>
+                    <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
+                        Transcription Processor              
+                    </span>
+                    <span className="pl-2">is using AssemblyAI</span>
+                </div>
+                
             </Navbar.Brand>
-            <Navbar.Toggle />
-            <Navbar.Collapse>
-                <Navbar.Link
-                    href="/navbars"
-                    active={true}
-                >
-                    Home
-                </Navbar.Link>
-                <Navbar.Link href="/navbars">
-                    About
-                </Navbar.Link>
-                <Navbar.Link href="/navbars">
-                    Services
-                </Navbar.Link>
-                <Navbar.Link href="/navbars">
-                    Pricing
-                </Navbar.Link>
-                <Navbar.Link href="/navbars">
-                    Contact
-                </Navbar.Link>
-            </Navbar.Collapse>
+
         </Navbar>
     );
 }

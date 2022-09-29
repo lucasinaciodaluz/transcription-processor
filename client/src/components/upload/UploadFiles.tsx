@@ -6,19 +6,69 @@ import { Button, FileInput, Progress } from "flowbite-react";
 
 const MySwal = withReactContent(Swal);
 
-export const LANGUAGES = {
-    PORTGUESE: "pt",
-    ENGLISH: "en"
+const LANGUAGES = {
+    GLOBAL_ENGLISH: "en",
+    AUSTRALIAN: "en_au",
+    BRITISH: "en_uk",
+    US: "en_us",
+    SPANISH: "es",
+    FRENCH: "fr",
+    GERMAN: "de",
+    ITALIAN: "it",
+    PORTUGUESE: "pt",
+    DUTCH: "nl",
+    HINDI: "hi",
+    JAPANESE: "ja"
 }
 
-const options = [
-    {
-        name: "Portuguese",
-        value: LANGUAGES.PORTGUESE
+const language_options = [
+    {	
+        name: "Global English", 
+        value: LANGUAGES.GLOBAL_ENGLISH
     },
-    {
-        name: "English",
-        value: LANGUAGES.ENGLISH
+    {	
+        name: "Australian", 
+        value: LANGUAGES.AUSTRALIAN
+    },
+    {	
+        name: "British", 
+        value: LANGUAGES.BRITISH
+    },
+    {	
+        name: "US", 
+        value: LANGUAGES.US
+    },
+    {	
+        name: "Spanish", 
+        value: LANGUAGES.SPANISH
+    },
+    {	
+        name: "French", 
+        value: LANGUAGES.FRENCH
+    },
+    {	
+        name: "German", 
+        value: LANGUAGES.GERMAN
+    },
+    {	
+        name: "Italian", 
+        value: LANGUAGES.ITALIAN
+    },
+    {	
+        name: "Portuguese", 
+        value: LANGUAGES.PORTUGUESE
+    },
+    {	
+        name: "Dutch", 
+        value: LANGUAGES.DUTCH
+    },
+    {	
+        name: "Hindi", 
+        value: LANGUAGES.HINDI
+    },
+    {	
+        name: "Japanese", 
+        value: LANGUAGES.JAPANESE
     }
 ]
 
@@ -34,7 +84,7 @@ export default class UploadFiles extends React.Component<any, any> {
             progress: 0,
             message: "",
             id: "",
-            language: "pt"
+            language: LANGUAGES.PORTUGUESE
         };
     }
 
@@ -106,34 +156,36 @@ export default class UploadFiles extends React.Component<any, any> {
         return (
             <div>
                 <div className="px-4 py-6 sm:px-0">
-                    <p className="text-2xl font-semibold text-gray-900 dark:text-white">Transcription:</p>
+                    <p className="text-2xl font-semibold text-gray-900 dark:text-white">Your transcription:</p>
                     <blockquote className="p-4 my-4 bg-gray-50 border-l-4 border-gray-300 dark:border-gray-500 dark:bg-gray-800">
                         <p className="text-xl italic font-medium leading-relaxed text-gray-900 dark:text-white">
                             {message}
                         </p>
                     </blockquote>
                     <div className="flex items-stretch">
+                        {currentFile && (
+                            <div className="progress" hidden={currentFile}>
+                                <div className="text-base font-medium text-blue-700">
+                                    {progress}%
+                                </div>
+                                <Progress
+                                    progress={Number(progress)}
+                                    color="blue"
+                                />
+                            </div>
+                        )}
+                    </div>
+                    <div className="flex items-stretch">
                         <div className="flex-1 text-center pr-2">
                             <FileInput id="file_input" onChange={this.selectFile} />
-                            {currentFile && (
-                                <div className="progress">
-                                    <div className="text-base font-medium text-blue-700">
-                                        {progress}%
-                                    </div>
-                                    <Progress
-                                        progress={Number(progress)}
-                                        color="blue"
-                                    />
-                                </div>
-                            )}
                         </div>
                         <div className="flex-3 text-center pr-2">
                             <select
                                 id="large"
                                 className="z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700"
                                 onChange={e => this.handleChange(e.target.value)}>
-                                {options.map(o => (
-                                    <option key={o.value} value={o.value}>{o.name}</option>
+                                {language_options.map(language => (
+                                    <option key={language.value} value={language.value}>{language.name}</option>
                                 ))}
                             </select>
                         </div>
