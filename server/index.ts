@@ -10,7 +10,7 @@ const PORT = process.env.PORT || 3001;
 
 app.use(cors())
 
-const authorization = "a3b415058c084c64acc825e5c6da4c02";
+const authorization = process.env.ASSEMBLYAI_API_KEY;
 const url = "https://api.assemblyai.com/v2";
 
 app.use(express.static(path.resolve(__dirname, '../client/build')));
