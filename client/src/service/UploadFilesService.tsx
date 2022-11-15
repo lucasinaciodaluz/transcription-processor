@@ -53,7 +53,7 @@ class UploadFilesService {
     }
     
     async getProcessingStatus(id: any) {
-        const authorization: string | undefined = process.env.ASSEMBLYAI_API_KEY;
+        const authorization: string | undefined = process.env.REACT_APP_ASSEMBLYAI_API_KEY;
         const url = "https://api.assemblyai.com/v2";
         const endpoint = `${url}/transcript/${id}`;
         const params = {
